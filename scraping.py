@@ -309,10 +309,6 @@ def analysis():
         f0 = open(file, "r")
         fi = pickle.load(f0)
         f0.close()
-        #SVMなどの方法と同じようにやってみる
-        #コースや馬場状態などによってどれだけ正解しているかを見る?
-        """正解をつけるとその結果に限定されてしまうので教師なしが適当"""
-        #[[(1,5,4)]]や[[[1,5,4]]]のように行列の要素に(1,5,4)や[1,5,4]などを指定できないか
         #sum初期化
         sum = 0
         sum2 = 0
@@ -327,7 +323,6 @@ def analysis():
         lis3 = []
         for list in fi:
             #条件要素だけのリスト作成
-            """天気のみ、馬場状態のみなど個々の条件と結果を突き合わせてみる"""
             #天気、馬場状態のみ
             list01 = [list[0],list[1]]
             #天気、コースのみ
@@ -360,7 +355,7 @@ def analysis():
         var2 = numpy.var(numlist2)
         #3着
         var3 = numpy.var(numlist3)
-        """
+
         if len(fi) == 5748:
             print (u"中京　1着：" + str(sum / len(fi)) + u"　2着：" + str(sum2 / len(fi)) + u"　3着：" + str(sum3 / len(fi)))
         if len(fi) == 5158:
@@ -381,8 +376,8 @@ def analysis():
             print (u"札幌　1着：" + str(sum / len(fi)) + u"　2着：" + str(sum2 / len(fi)) + u"　3着：" + str(sum3 / len(fi)))
         if len(fi) == 9498:
             print (u"東京　1着：" + str(sum / len(fi)) + u"　2着：" + str(sum2 / len(fi)) + u" 　3着：" + str(sum3 / len(fi)))
+        
         """
-
         if len(fi) == 5748:
             print (u"中京（分散）　1着：" + str(var) + u"　2着：" + str(var2) + u"　3着：" + str(var3))
         if len(fi) == 5158:
@@ -403,11 +398,12 @@ def analysis():
             print (u"札幌（分散）　1着：" + str(var) + u"　2着：" + str(var2) + u"　 3着：" + str(var3))
         if len(fi) == 9498:
             print (u"東京（分散）　1着：" + str(var) + u"　2着：" + str(var2) + u" 　3着：" + str(var3))
-
+        """
+        
 #特徴抽出
 #main()
 #特徴ベクトル作成
 #vector()
 #分析
-analysis()
+#analysis()
 
