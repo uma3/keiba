@@ -135,9 +135,9 @@ def ext(keibajou, soup, htmltxt):
 #最初に実行
 def main():
     #ファイル名抽出
-    fileglob = glob.glob(r"C:\comike_python\*\*.txt")
+    fileglob = glob.glob(r"[directory_path]\*\*.txt")
     #ファイル命名用（競馬場名）
-    file_re = re.compile("comike_python\\\\.+\\\\(.+)_")
+    file_re = re.compile("[directory_path]\\\\.+\\\\(.+)_")
 
     #特徴を入れるリスト
     sapporoar = []
@@ -189,43 +189,43 @@ def main():
     #保存
     #ファイル名を競馬場名_result.txtとして保存
     #札幌
-    f = open(r"C:\comike_python\sapporo_result.txt","w")
+    f = open(r"[directory_path]\sapporo_result.txt","w")
     pickle.dump(sapporoar, f)
     f.close()
     #函館
-    f = open(r"C:\comike_python\hakodate_result.txt","w")
+    f = open(r"[directory_path]\hakodate_result.txt","w")
     pickle.dump(hakodatear, f)
     f.close()
     #福島
-    f = open(r"C:\comike_python\fukushima_result.txt","w")
+    f = open(r"[directory_path]\fukushima_result.txt","w")
     pickle.dump(fukushimaar, f)
     f.close()
     #新潟
-    f = open(r"C:\comike_python\niigata_result.txt","w")
+    f = open(r"[directory_path]\niigata_result.txt","w")
     pickle.dump(niigataar, f)
     f.close()
     #東京
-    f = open(r"C:\comike_python\tokyo_result.txt","w")
+    f = open(r"[directory_path]\tokyo_result.txt","w")
     pickle.dump(tokyoar, f)
     f.close()
     #中山
-    f = open(r"C:\comike_python\nakayama_result.txt","w")
+    f = open(r"[directory_path]\nakayama_result.txt","w")
     pickle.dump(nakayamaar, f)
     f.close()
     #中京
-    f = open(r"C:\comike_python\chukyo_result.txt","w")
+    f = open(r"[directory_path]\chukyo_result.txt","w")
     pickle.dump(chukyoar, f)
     f.close()
     #京都
-    f = open(r"C:\comike_python\kyoto_result.txt","w")
+    f = open(r"[directory_path]\kyoto_result.txt","w")
     pickle.dump(kyotoar, f)
     f.close()
     #阪神
-    f = open(r"C:\comike_python\hanshin_result.txt","w")
+    f = open(r"[directory_path]\hanshin_result.txt","w")
     pickle.dump(hanshinar, f)
     f.close()
     #小倉
-    f = open(r"C:\comike_python\kokura_result.txt","w")
+    f = open(r"[directory_path]\kokura_result.txt","w")
     pickle.dump(kokuraar, f)
     f.close()
 
@@ -235,8 +235,8 @@ def main():
 #数値の特徴ベクトル生成
 def vector():
     #すべてのファイル名抽出
-    f = glob.glob(r"C:\comike_python\*_result.txt")
-    filemei_re = re.compile("C:\\\\comike_python\\\\([a-z]*)_")
+    f = glob.glob(r"[directory_path]\*_result.txt")
+    filemei_re = re.compile("[directory_path]\\\\([a-z]*)_")
     #すべてのファイルの内容（ベクトル）抽出
     #ファイルを１つずつ見る
     for file in f:
@@ -291,19 +291,19 @@ def vector():
         t.append(dic)
         k.append(kekkavector)
         #競馬場ごとの結果をファイル出力
-        fwrite = open("C:\\comike_python\\" + filemei.group(1) + "_feature.txt", "w")
+        fwrite = open("[directory_path]\\" + filemei.group(1) + "_feature.txt", "w")
         pickle.dump(t, fwrite)
         fwrite.close()
-        fwrite2 = open("C:\\comike_python\\" + filemei.group(1) + "_label.txt", "w")
+        fwrite2 = open("[directory_path]\\" + filemei.group(1) + "_label.txt", "w")
         pickle.dump(k, fwrite2)
         fwrite2.close()
-        fwrite3 = open("C:\\comike_python\\" + filemei.group(1) + "_finalfeature.txt", "w")
+        fwrite3 = open("[directory_path]\\" + filemei.group(1) + "_finalfeature.txt", "w")
         pickle.dump(termk, fwrite3)
         fwrite3.close()
 
 def analysis():
     #すべての特徴のファイル名抽出
-    f = glob.glob(r"C:\comike_python\*_finalfeature.txt")
+    f = glob.glob(r"[directory_path]\*_finalfeature.txt")
     #ファイルを１つずつ見る
     for file in f:
         f0 = open(file, "r")
